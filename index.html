@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Day Bootstrap Template - Index</title>
+  <title>Index</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -26,6 +26,40 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    .ml11 {
+  font-weight: 700;
+  font-size: 10.5em;
+}
+
+.ml11 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+}
+
+.ml11 .line {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #fff;
+  transform-origin: 0 50%;
+}
+
+.ml11 .line1 { 
+  top: 0; 
+  left: 0;
+}
+
+.ml11 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+  </style>
 
   <!-- =======================================================
   * Template Name: Day - v2.2.1
@@ -100,10 +134,25 @@
     
     
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
-      <img src="assets/img/logo.png" alt="" style="height: 20%;margin-top: 50%;">
-      <h1>Welcome to Day</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+      <img src="assets/img/tpc.svg" alt="" style="height: 10%;margin-top: 10%;padding-bottom: 5%;">
+
+      
+
+      <h1 class="ml11" >
+        <span class="text-wrapper">
+          <span class="line line1"></span>
+          <span class="letters">KNOWHOW 2021</span>
+        </span>
+      </h1>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+      <!-- <h1>Welcome to Day</h1>
+      <h2>We are team of talented designers making websites with Bootstrap</h2> -->
+      <!-- <a href="#about" class="btn-get-started scrollto">Get Started</a> -->
     </div>
   </section><!-- End Hero -->
 
@@ -687,7 +736,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/day-multipurpose-html-template-for-free/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -711,3 +760,38 @@
 </body>
 
 </html>
+
+<script>
+  var textWrapper = document.querySelector('.ml11 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml11 .line',
+    scaleY: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700
+  })
+  .add({
+    targets: '.ml11 .line',
+    translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
+    easing: "easeOutExpo",
+    duration: 700,
+    delay: 100
+  }).add({
+    targets: '.ml11 .letter',
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=775',
+    delay: (el, i) => 34 * (i+1)
+  }).add({
+    targets: '.ml11',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+        
+</script>
