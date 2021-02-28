@@ -632,7 +632,7 @@ section {
 
 .team .member .social a {
   color: #919191;
-  transition: 0.3s;
+  transition: 0.1s;
 }
 
 .team .member .social a:hover {
