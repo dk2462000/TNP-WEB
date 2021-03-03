@@ -15,8 +15,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["link1"]. " - Name: " . $row["link2"]. " " . $row["link3"]. "<br>";
-    $link1=$row["link1"];
+    
     header('Location: '.$row["link1"]);
   }
 } else {
@@ -30,3 +29,4 @@ if ($result->num_rows > 0) {
 
 
 ?>
+
