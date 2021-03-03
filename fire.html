@@ -1,0 +1,78 @@
+<html>
+<body>
+<style>
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+}
+
+table {
+    border-spacing: 5px;
+}
+
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  const firebaseConfig = {
+  apiKey: "AIzaSyCLbh19Q3WCO02AxSIEN9MWULG3Y3pRDpo",
+  authDomain: "tnp-web.firebaseapp.com",
+  databaseURL: "https://tnp-web-default-rtdb.firebaseio.com",
+  projectId: "tnp-web",
+  storageBucket: "tnp-web.appspot.com",
+  messagingSenderId: "973408814385",
+  appId: "1:973408814385:web:b62f65248c524c74ec1c10",
+  measurementId: "G-RGCNDNDBQL"
+};
+  firebase.initializeApp(config);
+</script>
+
+<head>
+    <title>Denuncias Municipales ASDE</title>
+    </head>
+<table style="width:100%">
+  <tr id="tr">
+    <th>Tipo de la Denuncia:</th>
+    <th>Dirección:</th> 
+    <th>Descripción:</th>
+    <th>Correo:</th>
+    <th>Creda por:</th>
+    <th>Imagen</th>
+    <th>Lat - Long</th>
+  </tr>
+  <tr> 
+  </tr>
+  <tr>
+    <tr>
+  </tr>
+</table>
+
+<script>
+    var database = firebase.database();
+    database.ref().once('value', function(snapshot){
+        if(snapshot.exists()){
+            var content = '';
+            snapshot.forEach(function(data){
+                var val = data.val();
+                content +='<tr>';
+                content += '<td>' + val.descripcion + '</td>';
+                content += '<td>' + val.direccion + '</td>';
+                content += '<td>' + val.estado + '</td>';
+                content += '<td>' + val.imagen + '</td>';
+                content += '<td>' + val.tipo + '</td>';
+                content += '<td>' + val.udisplayName + '</td>';
+                content += '<td>' + val.uemail + '</td>';
+                content += '</tr>';
+            });
+            $('#ex-table').append(content);
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -606,7 +606,7 @@ section {
   display: block;
   font-size: 28px;
   font-weight: 700;
-  color: #ed5b5b;
+  color:  #FF8C00;
 }
 
 .why-us .box h4 {
@@ -625,6 +625,7 @@ section {
 }
 
 .why-us .box:hover {
+  color: white;
   background: #ff8c00;
   padding: 30px 30px 70px 30px;
   box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
