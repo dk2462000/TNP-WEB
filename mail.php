@@ -1,5 +1,5 @@
 <?php
-$to = 'bvmtpc2022@gmail.com';
+$to = 'knowhow2021@gmail.com';
 $subject = $_POST['subject'];
 $message = $_POST['message']; 
 $message.="  " ;
